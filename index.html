@@ -653,13 +653,11 @@ footer a{color:inherit;text-decoration:underline}
             </div>
             <div style="font-size:15px;font-weight:700;color:#1756f3" id="equityCapAmt">-</div>
             <div style="font-size:11px;color:var(--g400);margin-top:2px">낙찰가 − 대출한도 (최소 필요 자금)</div>
+            <div style="font-size:11px;color:var(--g400);margin-top:2px">※ 취득세 및 기타 부대비용 제외</div>
           </div>
         </div>
         <div style="margin-top:10px;padding:10px 12px;background:#f0fdf8;border-radius:8px;font-size:11.5px;color:#065f46;line-height:1.7">
-          💡 <strong>대출 한도 산정 기준은 금융기관마다 다를 수 있습니다 (참고용)</strong><br/>
-          · 낙찰가가 감정가보다 <strong>낮은 경우</strong> — 낙찰가를 낮게 받았다고 대출이 더 나오지 않아요. 대출은 낙찰가 기준 LTV로 산정됩니다.<br/>
-          · 낙찰가가 감정가보다 <strong>높은 경우</strong> — 금융기관에 따라 감정가 기준으로 한도를 산정하는 경우도 있어 실제 한도가 달라질 수 있습니다.<br/>
-          위 금액은 참고용 예상값이며, 실제 한도는 금융기관 심사에 따라 달라질 수 있습니다.
+          💡 위 금액은 참고용 예상값이며, 실제 한도는 금융기관 심사에 따라 달라질 수 있습니다.
         </div>
       </div>
     </div>
@@ -685,11 +683,11 @@ footer a{color:inherit;text-decoration:underline}
           </div>
           <div class="term-item">
             <span class="term-chip">감정가</span>
-            <span class="term-desc">법원이 경매 전 전문 감정인에게 의뢰한 <strong>공식 가격</strong>이에요.<br/>낙찰가가 감정가보다 높을 경우, 금융기관에 따라 감정가를 기준으로 한도를 산정하기도 합니다.</span>
+            <span class="term-desc">법원이 경매 전 전문 감정인에게 의뢰한 <strong>공식 가격</strong>이에요. 금융기관에 따라 대출 한도 산정 기준이 달라질 수 있습니다.</span>
           </div>
           <div class="term-item">
             <span class="term-chip">낙찰가율</span>
-            <span class="term-desc">낙찰가 ÷ 감정가 × 100 = <strong>감정가 대비 실제 낙찰 비율</strong><br/>· 낙찰가가 감정가보다 <strong>낮을 때</strong>: 낙찰가를 낮게 받는다고 대출이 더 나오지 않아요. 대출은 낙찰가 기준 LTV로 산정됩니다.<br/>· 낙찰가가 감정가보다 <strong>높을 때</strong>: 금융기관에 따라 감정가 기준으로 한도를 낮게 산정할 수 있습니다. 금융기관마다 상이합니다.</span>
+            <span class="term-desc">낙찰가 ÷ 감정가 × 100 = <strong>감정가 대비 실제 낙찰 비율</strong><br/>대출 한도 산정 기준은 금융기관마다 다를 수 있습니다.</span>
           </div>
         </div>
       </div>
@@ -717,7 +715,6 @@ footer a{color:inherit;text-decoration:underline}
       <div style="font-size:13px;font-weight:700;color:#92580a;margin-bottom:6px">🤔 적정 낙찰가율, 얼마면 괜찮을까요?</div>
       <div style="font-size:12.5px;color:#7a5000;line-height:1.7">
         적정 낙찰가율은 <strong>시기 · 지역 · 물건 종류</strong>에 따라 전혀 다릅니다.<br/>
-        "낙찰가를 낮게 받으면 대출에 유리하다"는 것도 오해예요 — 대출은 <strong>낙찰가 × LTV 비율</strong>로 산정되기 때문입니다.<br/>
         실제 입찰 전략과 대출 가능 여부는 금융기관 심사를 통해 확인하세요.
       </div>
       <a href="http://pf.kakao.com/_yxnwyxj/chat" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:10px 18px;background:#FEE500;border-radius:100px;font-size:13px;font-weight:700;color:#3C1E1E;text-decoration:none">
@@ -856,11 +853,7 @@ function updateLtvRate() {
   var num=document.getElementById('ltvRateNum');
   // 낙찰가율 — 전 구간 중립 안내, 케이스 구분
   bar.style.background='#1756f3'; num.style.color='#1756f3'; msg.style.color='#555f80';
-  if (rate<=100){
-    msg.innerHTML='ℹ️ <strong>낙찰가 ≤ 감정가</strong><br/>낙찰가 낮다고 대출이 더 나오지 않아요.<br/>대출 기준은 낙찰가 × LTV입니다.';
-  } else {
-    msg.innerHTML='ℹ️ <strong>낙찰가 &gt; 감정가</strong><br/>금융기관에 따라 감정가 기준으로<br/>한도를 산정할 수 있습니다. 금융기관마다 상이합니다.';
-  }
+  msg.innerHTML='';
 }
 
 // ── 지역 ──
@@ -1259,4 +1252,5 @@ function calculate(silent) {
 </script>
 </body>
 </html>
+
 
